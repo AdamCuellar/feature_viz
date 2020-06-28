@@ -1,1 +1,0 @@
-..\bin\darknet.exe detector map obj.data obj.cfg weights\obj_last.weights

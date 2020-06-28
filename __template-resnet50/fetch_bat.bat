@@ -1,1 +1,0 @@
-robocopy ..\scripts\bat . *
