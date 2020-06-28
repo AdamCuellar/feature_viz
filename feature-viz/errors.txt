@@ -1,0 +1,272 @@
+====================[ Clean | Debug ]===========================================
+/snap/clion/114/bin/cmake/linux/bin/cmake --build /home/adam/CLionProjects/lightnet/feature-viz/cmake-build-debug --target clean -- -j 48
+
+Clean finished
+
+====================[ Build | Feature-Viz | Debug ]=============================
+/snap/clion/114/bin/cmake/linux/bin/cmake --build /home/adam/CLionProjects/lightnet/feature-viz/cmake-build-debug --target Feature-Viz -- -j 48
+Scanning dependencies of target Feature-Viz
+[ 16%] Building CXX object CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o
+[ 33%] Building CXX object CMakeFiles/Feature-Viz.dir/src/main.cpp.o
+[ 50%] Building CXX object CMakeFiles/Feature-Viz.dir/src/MiniTraceHelper.cpp.o
+[ 66%] Building CXX object CMakeFiles/Feature-Viz.dir/src/os_hal.cpp.o
+[ 83%] Building CXX object CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o
+In file included from /home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:23:0:
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1342:0: warning: ignoring #pragma _CVUI_COMPILE_MESSAGE  [-Wunknown-pragmas]
+  #pragma _CVUI_COMPILE_MESSAGE(_CVUI_IMPLEMENTATION_NOTICE)
+
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:63:0: warning: ignoring #pragma comment  [-Wunknown-pragmas]
+ #pragma comment(lib, "opencv_world" OPENCV_VERSION ".lib")
+
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp: In function ‘std::vector<cv::Mat> get_layer_activations(int)’:
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:198:17: warning: unused variable ‘input_size’ [-Wunused-variable]
+             int input_size = l->input_sizes[i];
+                 ^~~~~~~~~~
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp: In member function ‘virtual cv::VideoCapture& ImageFilesCapture::operator>>(cv::Mat&)’:
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:28:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         if (currentIdx > imageNames.size() - 1)
+             ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp: At global scope:
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:127:2: warning: extra ‘;’ [-Wpedantic]
+ };
+  ^
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:155:2: warning: extra ‘;’ [-Wpedantic]
+ };
+  ^
+In file included from /home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:23:0:
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1909:3: warning: extra ‘;’ [-Wpedantic]
+  };
+   ^
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp: In function ‘void offline()’:
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:204:40: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+             if (obj_names.empty() || K > obj_names.size())
+                                      ~~^~~~~~~~~~~~~~~~~~
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp: In function ‘void viz()’:
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:317:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+                         if (obj_names.empty() || K > obj_names.size())
+                                                  ~~^~~~~~~~~~~~~~~~~~
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp: In function ‘int main(int, char**)’:
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:516:16: warning: variable ‘netoutdata’ set but not used [-Wunused-but-set-variable]
+         float* netoutdata = NULL;
+                ^~~~~~~~~~
+[100%] Linking CXX executable Feature-Viz-gd
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `init_net(char const*, char const*, int*, int*, int*, int*, int*)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:17: undefined reference to `load_network_custom'
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:27: undefined reference to `get_network_layer'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `get_layer_metas()':
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:42: undefined reference to `get_network_layer'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `run_net(float*)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:99: undefined reference to `network_predict'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `mat_to_image(cv::Mat)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:115: undefined reference to `make_image'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `run_net_classifier(cv::Mat)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:131: undefined reference to `rgbgr_image'
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:132: undefined reference to `resize_min'
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:133: undefined reference to `crop_image'
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:135: undefined reference to `network_predict'
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:136: undefined reference to `free_image'
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:137: undefined reference to `free_image'
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:138: undefined reference to `free_image'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `optimize_mat(cv::Mat, int, float, float, float, int)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:176: undefined reference to `optimize_picture'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `get_layer_activations(int)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:191: undefined reference to `get_network_layer'
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:207: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:210: undefined reference to `cuda_pull_array'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `get_layer_weights(int)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:239: undefined reference to `get_network_layer'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `top_k_indices(float*, int, int)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/lightnet.cpp:269: undefined reference to `top_k'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `cv::Mat::Mat(cv::Mat const&)':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:553: undefined reference to `cv::Mat::copySize(cv::Mat const&)'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `cv::Mat::~Mat()':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:754: undefined reference to `cv::fastFree(void*)'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `cv::Mat::create(int, int, int)':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:846: undefined reference to `cv::Mat::create(int, int const*, int)'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `cv::Mat::release()':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:866: undefined reference to `cv::Mat::deallocate()'
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:876: undefined reference to `cv::fastFree(void*)'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `cv::Mat::operator=(cv::Mat&&)':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:1439: undefined reference to `cv::fastFree(void*)'
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:1450: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `cv::MatStep::operator unsigned long() const':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:1561: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `float* cv::Mat::ptr<float>(int)':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:1002: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+CMakeFiles/Feature-Viz.dir/src/lightnet.cpp.o: In function `cv::Matx<int, 3, 1>::Matx(std::initializer_list<int>)':
+/usr/local/include/opencv4/opencv2/core/matx.hpp:670: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::internal::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1408: undefined reference to `cv::waitKey(int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::internal::button(cvui::cvui_block_t&, int, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1641: undefined reference to `cv::getTextSize(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, double, int, int*)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::internal::button(cvui::cvui_block_t&, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1675: undefined reference to `cv::getTextSize(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, double, int, int*)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::internal::checkbox(cvui::cvui_block_t&, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool*, unsigned int)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1716: undefined reference to `cv::getTextSize(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, double, int, int*)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::internal::text(cvui::cvui_block_t&, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, double, unsigned int, bool)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1744: undefined reference to `cv::getTextSize(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, double, int, int*)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::text(cvui::cvui_block_t&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cv::Point_<int>&, double, unsigned int)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1873: undefined reference to `cv::putText(cv::_InputOutputArray const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cv::Point_<int>, int, double, cv::Scalar_<double>, int, int, bool)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::button(cvui::cvui_block_t&, int, cv::Rect_<int>&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1878: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1882: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1886: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::putText(cvui::cvui_block_t&, int, cv::Scalar_<double>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cv::Point_<int> const&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1894: undefined reference to `cv::putText(cv::_InputOutputArray const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cv::Point_<int>, int, double, cv::Scalar_<double>, int, int, bool)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1895: undefined reference to `cv::getTextSize(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, double, int, int*)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::putTextCentered(cvui::cvui_block_t&, cv::Point_<int> const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1904: undefined reference to `cv::getTextSize(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, double, int, int*)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1906: undefined reference to `cv::putText(cv::_InputOutputArray const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cv::Point_<int>, int, double, cv::Scalar_<double>, int, int, bool)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::buttonLabel(cvui::cvui_block_t&, int, cv::Rect_<int>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cv::Size_<int>&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1933: undefined reference to `cv::line(cv::_InputOutputArray const&, cv::Point_<int>, cv::Point_<int>, cv::Scalar_<double> const&, int, int, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::image(cvui::cvui_block_t&, cv::Rect_<int>&, cv::Mat&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1938: undefined reference to `cv::Mat::copyTo(cv::_OutputArray const&) const'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::counter(cvui::cvui_block_t&, cv::Rect_<int>&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1942: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1943: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1945: undefined reference to `cv::getTextSize(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, double, int, int*)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1948: undefined reference to `cv::putText(cv::_InputOutputArray const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cv::Point_<int>, int, double, cv::Scalar_<double>, int, int, bool)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::trackbarPath(cvui::cvui_block_t&, int, cv::Rect_<int>&, double, cvui::internal::TrackbarParams const&, cv::Rect_<int>&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:1987: undefined reference to `cv::line(cv::_InputOutputArray const&, cv::Point_<int>, cv::Point_<int>, cv::Scalar_<double> const&, int, int, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::trackbarSteps(cvui::cvui_block_t&, int, cv::Rect_<int>&, double, cvui::internal::TrackbarParams const&, cv::Rect_<int>&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2002: undefined reference to `cv::line(cv::_InputOutputArray const&, cv::Point_<int>, cv::Point_<int>, cv::Scalar_<double> const&, int, int, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::trackbarSegmentLabel(cvui::cvui_block_t&, cv::Rect_<int>&, cvui::internal::TrackbarParams const&, long double, cv::Rect_<int>&, bool)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2014: undefined reference to `cv::line(cv::_InputOutputArray const&, cv::Point_<int>, cv::Point_<int>, cv::Scalar_<double> const&, int, int, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::checkbox(cvui::cvui_block_t&, int, cv::Rect_<int>&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2065: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2069: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2073: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::checkboxCheck(cvui::cvui_block_t&, cv::Rect_<int>&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2083: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::window(cvui::cvui_block_t&, cv::Rect_<int>&, cv::Rect_<int>&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2093: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o:/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2096: more undefined references to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)' follow
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::window(cvui::cvui_block_t&, cv::Rect_<int>&, cv::Rect_<int>&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2100: undefined reference to `cv::putText(cv::_InputOutputArray const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cv::Point_<int>, int, double, cv::Scalar_<double>, int, int, bool)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2104: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2108: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2111: undefined reference to `cv::Mat::copyTo(cv::_OutputArray const&) const'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2112: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2113: undefined reference to `cv::addWeighted(cv::_InputArray const&, double, cv::_InputArray const&, double, double, cv::_OutputArray const&, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2117: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::rect(cvui::cvui_block_t&, cv::Rect_<int>&, unsigned int, unsigned int)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2130: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2136: undefined reference to `cv::addWeighted(cv::_InputArray const&, double, cv::_InputArray const&, double, double, cv::_OutputArray const&, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2141: undefined reference to `cv::rectangle(cv::_InputOutputArray const&, cv::Rect_<int>, cv::Scalar_<double> const&, int, int, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::render::sparkline(cvui::cvui_block_t&, std::vector<double, std::allocator<double> >&, cv::Rect_<int>&, double, double, unsigned int)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2161: undefined reference to `cv::line(cv::_InputOutputArray const&, cv::Point_<int>, cv::Point_<int>, cv::Scalar_<double> const&, int, int, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::watch(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2184: undefined reference to `cv::namedWindow(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2197: undefined reference to `cv::setMouseCallback(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, void (*)(int, int, int, int, void*), void*)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::imshow(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cv::_InputArray const&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2206: undefined reference to `cv::imshow(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cv::_InputArray const&)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cvui::update(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/home/adam/CLionProjects/lightnet/feature-viz/cvui/cvui.h:2450: undefined reference to `cv::waitKey(int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `viz()':
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:231: undefined reference to `cv::Mat::operator=(cv::Scalar_<double> const&)'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:276: undefined reference to `cv::circle(cv::_InputOutputArray const&, cv::Point_<int>, int, cv::Scalar_<double> const&, int, int, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:346: undefined reference to `cv::extractChannel(cv::_InputArray const&, cv::_OutputArray const&, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:350: undefined reference to `cv::extractChannel(cv::_InputArray const&, cv::_OutputArray const&, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `viz()':
+/usr/local/include/opencv4/opencv2/core.hpp:814: undefined reference to `cv::noArray()'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `viz()':
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:360: undefined reference to `cv::minMaxLoc(cv::_InputArray const&, double*, double*, cv::Point_<int>*, cv::Point_<int>*, cv::_InputArray const&)'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:368: undefined reference to `cv::Mat::convertTo(cv::_OutputArray const&, int, double, double) const'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:369: undefined reference to `cv::cvtColor(cv::_InputArray const&, cv::_OutputArray const&, int, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:374: undefined reference to `cv::extractChannel(cv::_InputArray const&, cv::_OutputArray const&, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:375: undefined reference to `cv::extractChannel(cv::_InputArray const&, cv::_OutputArray const&, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:377: undefined reference to `cv::Mat::convertTo(cv::_OutputArray const&, int, double, double) const'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:378: undefined reference to `cv::Mat::convertTo(cv::_OutputArray const&, int, double, double) const'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:379: undefined reference to `cv::Mat::convertTo(cv::_OutputArray const&, int, double, double) const'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:382: undefined reference to `cv::merge(cv::Mat const*, unsigned long, cv::_OutputArray const&)'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:384: undefined reference to `cv::resize(cv::_InputArray const&, cv::_OutputArray const&, cv::Size_<int>, double, double, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `main':
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:395: undefined reference to `cv::CommandLineParser::CommandLineParser(int, char const* const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:398: undefined reference to `cv::CommandLineParser::printMessage() const'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:402: undefined reference to `cv::CommandLineParser::check() const'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:404: undefined reference to `cv::CommandLineParser::printErrors() const'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:417: undefined reference to `cv::CommandLineParser::printMessage() const'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:423: undefined reference to `cv::CommandLineParser::printMessage() const'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:539: undefined reference to `cv::waitKey(int)'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:395: undefined reference to `cv::CommandLineParser::~CommandLineParser()'
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:395: undefined reference to `cv::CommandLineParser::~CommandLineParser()'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `std::experimental::filesystem::v1::exists(std::experimental::filesystem::v1::__cxx11::path const&)':
+/usr/include/c++/7/experimental/bits/fs_ops.h:127: undefined reference to `std::experimental::filesystem::v1::status(std::experimental::filesystem::v1::__cxx11::path const&)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cv::Mat::Mat(cv::Size_<int>, int, cv::Scalar_<double> const&)':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:501: undefined reference to `cv::Mat::operator=(cv::Scalar_<double> const&)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cv::Mat::operator=(cv::Mat const&)':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:775: undefined reference to `cv::Mat::copySize(cv::Mat const&)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cv::Mat::operator()(cv::Rect_<int> const&) const':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:892: undefined reference to `cv::Mat::Mat(cv::Mat const&, cv::Rect_<int> const&)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cv::Mat::elemSize() const':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:923: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cv::MatSize::operator()() const':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:1479: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cv::MatSize::operator[](int) const':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:1486: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cv::TickMeter::start()':
+/usr/local/include/opencv4/opencv2/core/utility.hpp:324: undefined reference to `cv::getTickCount()'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cv::TickMeter::stop()':
+/usr/local/include/opencv4/opencv2/core/utility.hpp:332: undefined reference to `cv::getTickCount()'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `ControlPanel::setup()':
+/home/adam/CLionProjects/lightnet/feature-viz/src/main.cpp:77: undefined reference to `cv::imread(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `std::experimental::filesystem::v1::__cxx11::path::path<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::experimental::filesystem::v1::__cxx11::path>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/usr/include/c++/7/experimental/bits/fs_path.h:199: undefined reference to `std::experimental::filesystem::v1::__cxx11::path::_M_split_cmpts()'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `cv::Vec<double, 4>::operator[](int)':
+/usr/local/include/opencv4/opencv2/core/matx.hpp:1120: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `float& cv::Mat::at<float>(int)':
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:1200: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:1201: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:1202: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+/usr/local/include/opencv4/opencv2/core/mat.inl.hpp:1203: undefined reference to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o:/usr/local/include/opencv4/opencv2/core/matx.hpp:1113: more undefined references to `cv::error(int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*, char const*, int)' follow
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `bool cv::CommandLineParser::get<bool>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool) const':
+/usr/local/include/opencv4/opencv2/core/utility.hpp:866: undefined reference to `cv::CommandLineParser::getByName(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool, cv::Param, void*) const'
+CMakeFiles/Feature-Viz.dir/src/main.cpp.o: In function `std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > cv::CommandLineParser::get<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool) const':
+/usr/local/include/opencv4/opencv2/core/utility.hpp:866: undefined reference to `cv::CommandLineParser::getByName(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool, cv::Param, void*) const'
+CMakeFiles/Feature-Viz.dir/src/MiniTraceHelper.cpp.o: In function `MiniTraceHelper::MiniTraceHelper()':
+/home/adam/CLionProjects/lightnet/feature-viz/src/MiniTraceHelper.cpp:5: undefined reference to `mtr_init'
+/home/adam/CLionProjects/lightnet/feature-viz/src/MiniTraceHelper.cpp:6: undefined reference to `mtr_register_sigint_handler'
+CMakeFiles/Feature-Viz.dir/src/MiniTraceHelper.cpp.o: In function `MiniTraceHelper::~MiniTraceHelper()':
+/home/adam/CLionProjects/lightnet/feature-viz/src/MiniTraceHelper.cpp:13: undefined reference to `mtr_flush'
+/home/adam/CLionProjects/lightnet/feature-viz/src/MiniTraceHelper.cpp:14: undefined reference to `mtr_shutdown'
+CMakeFiles/Feature-Viz.dir/src/os_hal.cpp.o: In function `getScreenResolution(int&, int&)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/os_hal.cpp:13: undefined reference to `XOpenDisplay'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o: In function `safe_open_video(cv::CommandLineParser const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool*)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:86: undefined reference to `cv::CommandLineParser::has(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const'
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:96: undefined reference to `cv::CommandLineParser::has(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const'
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:106: undefined reference to `cv::CommandLineParser::has(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const'
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:116: undefined reference to `cv::CommandLineParser::has(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o: In function `safe_grab_video(std::shared_ptr<cv::VideoCapture>, cv::CommandLineParser const&, cv::Mat&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:141: undefined reference to `cv::flip(cv::_InputArray const&, cv::_OutputArray const&, int)'
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:146: undefined reference to `cv::CommandLineParser::has(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o: In function `ImageFilesCapture::ImageFilesCapture(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:11: undefined reference to `cv::VideoCapture::VideoCapture()'
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:11: undefined reference to `cv::VideoCapture::~VideoCapture()'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o: In function `ImageFilesCapture::operator>>(cv::Mat&)':
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:35: undefined reference to `cv::imread(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int)'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o: In function `int cv::CommandLineParser::get<int>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool) const':
+/usr/local/include/opencv4/opencv2/core/utility.hpp:866: undefined reference to `cv::CommandLineParser::getByName(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool, cv::Param, void*) const'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o: In function `void __gnu_cxx::new_allocator<cv::VideoCapture>::construct<cv::VideoCapture>(cv::VideoCapture*)':
+/usr/include/c++/7/ext/new_allocator.h:136: undefined reference to `cv::VideoCapture::VideoCapture()'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o:(.data.rel.ro._ZTV17ImageFilesCapture[_ZTV17ImageFilesCapture]+0x20): undefined reference to `cv::VideoCapture::open(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int)'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o:(.data.rel.ro._ZTV17ImageFilesCapture[_ZTV17ImageFilesCapture]+0x28): undefined reference to `cv::VideoCapture::open(int, int)'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o:(.data.rel.ro._ZTV17ImageFilesCapture[_ZTV17ImageFilesCapture]+0x38): undefined reference to `cv::VideoCapture::release()'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o:(.data.rel.ro._ZTV17ImageFilesCapture[_ZTV17ImageFilesCapture]+0x40): undefined reference to `cv::VideoCapture::grab()'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o:(.data.rel.ro._ZTV17ImageFilesCapture[_ZTV17ImageFilesCapture]+0x48): undefined reference to `cv::VideoCapture::retrieve(cv::_OutputArray const&, int)'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o:(.data.rel.ro._ZTV17ImageFilesCapture[_ZTV17ImageFilesCapture]+0x58): undefined reference to `cv::VideoCapture::operator>>(cv::UMat&)'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o:(.data.rel.ro._ZTV17ImageFilesCapture[_ZTV17ImageFilesCapture]+0x60): undefined reference to `cv::VideoCapture::read(cv::_OutputArray const&)'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o:(.data.rel.ro._ZTV17ImageFilesCapture[_ZTV17ImageFilesCapture]+0x68): undefined reference to `cv::VideoCapture::set(int, double)'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o:(.data.rel.ro._ZTV17ImageFilesCapture[_ZTV17ImageFilesCapture]+0x70): undefined reference to `cv::VideoCapture::get(int) const'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o: In function `ImageFilesCapture::~ImageFilesCapture()':
+/home/adam/CLionProjects/lightnet/feature-viz/src/VideoHelper.cpp:8: undefined reference to `cv::VideoCapture::~VideoCapture()'
+CMakeFiles/Feature-Viz.dir/src/VideoHelper.cpp.o:(.data.rel.ro._ZTI17ImageFilesCapture[_ZTI17ImageFilesCapture]+0x10): undefined reference to `typeinfo for cv::VideoCapture'
+collect2: error: ld returned 1 exit status
+CMakeFiles/Feature-Viz.dir/build.make:143: recipe for target 'Feature-Viz-gd' failed
+make[3]: *** [Feature-Viz-gd] Error 1
+CMakeFiles/Makefile2:75: recipe for target 'CMakeFiles/Feature-Viz.dir/all' failed
+make[2]: *** [CMakeFiles/Feature-Viz.dir/all] Error 2
+CMakeFiles/Makefile2:82: recipe for target 'CMakeFiles/Feature-Viz.dir/rule' failed
+make[1]: *** [CMakeFiles/Feature-Viz.dir/rule] Error 2
+Makefile:118: recipe for target 'Feature-Viz' failed
+make: *** [Feature-Viz] Error 2
