@@ -41,6 +41,7 @@ const char* params =
 "{ video_pos    | 0                 | current position of the video file in milliseconds. }"
 "{ offline      | false             | offline mode will produce <source>.csv. }"
 "{ encoding     | true              | used with offline mode, will produce <source>.encoding. }"
+"{ image        | example.jpg       | Image file }"
 ;
 
 bool is_gui_visible = false;
@@ -70,8 +71,10 @@ struct ControlPanel
         cvui::init(TITLE);
 
         getScreenResolution(width, height);
-        width -= 100;
-        height -= 50;
+//        width -= 100;
+//        height -= 50;
+        width /= 2;
+        height /= 1;
         canvas = cv::Mat(height, width, CV_8UC3);
 
         params = imread("assets/params.jpg");
@@ -96,8 +99,8 @@ struct ControlPanel
 
     cv::Mat canvas;
     cv::Mat params;
-    int width = 1024;
-    int height = 768;
+    int width = 512;
+    int height = 384;
 
     // param
     bool dream = false;
@@ -115,6 +118,7 @@ vector<string> obj_names;
 string cfg_path;
 string weights_path;
 string names_path;
+string img_path;
 FILE* offline_output_fp = nullptr;
 FILE* offline_encoding_fp = nullptr;
 shared_ptr<VideoCapture> capture;
@@ -350,22 +354,23 @@ void viz()
                         extractChannel(tensor_, tensor_c0, 0);
                     }
 
-                    float convert_a = 255;
-                    float convert_b = 0;
+//                    float convert_a = 255;
+//                    float convert_b = 0;
 
                     if (tensor_c0.cols != 1 && tensor_c0.rows != 1)
                     {
                         cv::Point min_loc, max_loc;
                         double min_value, max_value;
                         cv::minMaxLoc(tensor_c0, &min_value, &max_value, &min_loc, &max_loc);
-
-                        convert_a = 255 / (max_value - min_value);
-                        convert_b = -convert_a * min_value;
+//
+//                        convert_a = 255 / (max_value - min_value);
+//                        convert_b = -convert_a * min_value;
                     }
 
                     if (!is_rgb)
                     {
-                        tensor_c0.convertTo(tensor_c0, CV_8UC1, convert_a, convert_b);
+                        normalize(tensor_c0, tensor_c0,0,255,NORM_MINMAX,CV_8UC1);
+//                        tensor_c0.convertTo(tensor_c0, CV_8UC1, convert_a, convert_b);
                         cvtColor(tensor_c0, tensor_rgb, COLOR_GRAY2BGR);
                     }
                     else
@@ -374,9 +379,13 @@ void viz()
                         extractChannel(tensor_, tensor_c1, 1);
                         extractChannel(tensor_, tensor_c2, 2);
 
-                        tensor_c0.convertTo(tensor_c0, CV_8UC1, convert_a, convert_b);
-                        tensor_c1.convertTo(tensor_c1, CV_8UC1, convert_a, convert_b);
-                        tensor_c2.convertTo(tensor_c2, CV_8UC1, convert_a, convert_b);
+                        normalize(tensor_c0, tensor_c0,0,255,NORM_MINMAX,CV_8UC1);
+                        normalize(tensor_c1, tensor_c1,0,255,NORM_MINMAX,CV_8UC1);
+                        normalize(tensor_c2, tensor_c2,0,255,NORM_MINMAX,CV_8UC1);
+
+//                        tensor_c0.convertTo(tensor_c0, CV_8UC1, convert_a, convert_b);
+//                        tensor_c1.convertTo(tensor_c1, CV_8UC1, convert_a, convert_b);
+//                        tensor_c2.convertTo(tensor_c2, CV_8UC1, convert_a, convert_b);
 
                         Mat channels[] = { tensor_c0, tensor_c1, tensor_c2 };
                         cv::merge(channels, 3, tensor_rgb);
@@ -410,6 +419,7 @@ int main(int argc, char** argv)
     cfg_path = parser.get<string>("cfg");
     weights_path = parser.get<string>("weights");
     names_path = parser.get<string>("names");
+    img_path = parser.get<string>("image");
 
     if (!fs::exists(cfg_path))
     {
@@ -434,7 +444,7 @@ int main(int argc, char** argv)
         }
     }
 
-    Mat frame;
+    Mat frame = imread(img_path, IMREAD_COLOR);
 
     is_gui_visible = parser.get<bool>("gui");
     is_fullscreen = parser.get<bool>("fullscreen");
