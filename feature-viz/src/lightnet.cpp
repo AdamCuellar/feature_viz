@@ -189,6 +189,7 @@ vector<Mat> get_layer_activations(int layer_idx)
     vector<Mat> activations;
 
     layer* l = get_network_layer(net, layer_idx);
+    if (l->type == SHORTCUT) return{};
     if (l->type == REGION) return{};
     if (l->type == ROUTE)
     {
@@ -237,6 +238,7 @@ vector<Mat> get_layer_weights(int layer_idx)
     vector<Mat> weights;
 
     layer* l = get_network_layer(net, layer_idx);
+    if (l->type == SHORTCUT) return{};
     if (l->type == REGION) return{};
     if (l->type == ROUTE) return{};
     if (l->type == YOLO) return{};
